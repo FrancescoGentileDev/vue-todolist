@@ -21,7 +21,11 @@ const app = new Vue({
     el: "#app",
     data: {
         todos: data,
-    }
-
+    },
+    methods: {
+        removeTodo(index) {
+            this.todos.splice(index, 1)
+        }
+    },
 
 })
