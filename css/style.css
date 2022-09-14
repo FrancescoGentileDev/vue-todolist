@@ -42,15 +42,19 @@ li input[type="checkbox"]:checked + label {
     text-decoration: line-through;
 }
 
+li {
+    font-size: 1.2rem;
+}
 
 .li-todo .number-action {
-    --size: 1.5rem;
+    --size: 1.8rem;
     margin-right: 2rem;
     background-color: crimson;
     display: inline-block;
     text-align: center;
     width: var(--size);
     height: var(--size);
+    line-height: var(--size);
     border-radius: 50%;
     color: white
 }
@@ -58,3 +62,8 @@ li input[type="checkbox"]:checked + label {
 
 li button {
     border: none;}
+
+li .li-todo.done {
+    text-decoration: line-through;
+
+}
