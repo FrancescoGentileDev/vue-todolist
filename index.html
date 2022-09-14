@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--#region FONTAWESOME-->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--#endregion FONTAWESOME-->
 
     <!--#region BOOTSTRAP ICON-->
@@ -45,14 +45,16 @@
             </div>
 
             <ul id="list">
-                <li v-for="(item, index) in todos" :key="index" class="d-flex justify-content-between">
-                    <div class="li-todo" @click="changeDone(index)" :class="{done: item.done}">
+                <li v-for="(item, index) in todos" :key="index" class="d-flex justify-content-between row" :class="{done: item.done}">
+                    <div class="li-todo col-9" @click="changeDone(index)" >
                         <span class="number-action">{{index + 1}}</span>
                         <span>{{item.action}}</span>
                     </div>
-
-                    <button @click="removeTodo(index)">❌</button>
-
+                    <div class="todo-interaction col-3 d-flex justify-content-end">
+                        <button><i class="fas fa-angle-up p-1"></i></button>
+                        <button><i class="fas fa-angle-down p-1"></i></button>
+                        <button @click="removeTodo(index)">❌</button>
+                    </div>
                 </li>
             </ul>
         </div>

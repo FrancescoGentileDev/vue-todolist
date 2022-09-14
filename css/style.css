@@ -15,7 +15,7 @@ li:last-child {
 }
 
 .list-container {
-    max-width: 500px;  
+    max-width: 800px;  
     margin: 0 auto; 
    
 }
@@ -63,10 +63,23 @@ li {
 
 
 li button {
-    border: none;}
-
-li .li-todo.done {
-    text-decoration: line-through;
+    --size: 2.2rem;     
+    width: var(--size);
+    height: var(--size);
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+    border: none;
+    background-color: rgb(209, 209, 209);
+    border-radius: 50%;
+}
+li.done {
     font-weight: normal;
+}
+li.done .li-todo {
+    text-decoration: line-through;
+}
 
+li.done .number-action {
+    background-color: green;
 }
