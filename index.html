@@ -45,7 +45,7 @@
 
             <ul id="list">
                 <li v-for="(item, index) in todos" :key="index" class="d-flex justify-content-between">
-                    <div class="li-todo" :class="{done: item.done}">
+                    <div class="li-todo" @click="changeDone(index)" :class="{done: item.done}">
                     <span class="number-action">{{index + 1}}</span>
                     <span>{{item.action}}</span>
                     </div>

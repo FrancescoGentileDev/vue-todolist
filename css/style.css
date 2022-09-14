@@ -44,6 +44,8 @@ li input[type="checkbox"]:checked + label {
 
 li {
     font-size: 1.2rem;
+    font-weight: 600;
+    user-select: none;
 }
 
 .li-todo .number-action {
@@ -65,5 +67,6 @@ li button {
 
 li .li-todo.done {
     text-decoration: line-through;
+    font-weight: normal;
 
 }

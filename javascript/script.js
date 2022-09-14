@@ -9,7 +9,7 @@ const data = [
     },
     {
         action: "lavare la macchina",
-        done: false,
+        done: true,
     },
     {
         action: "ordinare paperelle su amazon",
@@ -25,6 +25,9 @@ const app = new Vue({
     methods: {
         removeTodo(index) {
             this.todos.splice(index, 1)
+        },
+        changeDone(index) {
+            this.todos[index].done = !this.todos[index].done
         }
     },
 
