@@ -37,7 +37,8 @@
             <div class="d-flex flex-column">
                 <label class="text-center mt-4" for="add">Inserisci qualcosa da aggiungere</label>
                 <input class="addList" type="text" name="add" id="addList" placeholder="andare a fare la spesa"
-                    v-model="valueInput" @keyup.enter="addTodo">
+                v-model="valueInput" @keyup.enter="addTodo" @keyup.188="addToWait">
+                <div class="string-error text-center mb-3" v-if="errorString">PASSAGGIO STRINGA NON VALIDA O DUPLICATA</div>
                 <div class="d-flex">
                     <button class="col-3 m-auto mb-3" id="insert" @click="addTodo">INSERISCI</button>
 
@@ -45,14 +46,17 @@
             </div>
 
             <ul id="list">
-                <li v-for="(item, index) in todos" :key="index" class="d-flex justify-content-between row" :class="{done: item.done}">
-                    <div class="li-todo col-9" @click="changeDone(index)" >
+                <li v-for="(item, index) in todos" :key="index" class="d-flex justify-content-between row"
+                    :class="{done: item.done}">
+                    <div class="li-todo col-9" @click="changeDone(index)">
                         <span class="number-action">{{index + 1}}</span>
                         <span>{{item.action}}</span>
                     </div>
                     <div class="todo-interaction col-3 d-flex justify-content-end">
-                        <button type="button" @click="goUpTodo(index)" :disabled="index===0"><i class="fas fa-angle-up p-1"></i></button>
-                        <button type="button" @click="goDownTodo(index)" :disabled="index===todos.length-1"><i class="fas fa-angle-down p-1"></i></button>
+                        <button type="button" @click="goUpTodo(index)" :disabled="index===0"><i
+                                class="fas fa-angle-up p-1"></i></button>
+                        <button type="button" @click="goDownTodo(index)" :disabled="index===todos.length-1"><i
+                                class="fas fa-angle-down p-1"></i></button>
                         <button type="button" @click="removeTodo(index)">❌</button>
                     </div>
                 </li>

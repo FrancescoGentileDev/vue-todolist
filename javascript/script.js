@@ -27,6 +27,7 @@ const app = new Vue({
   data: {
     todos: data,
     valueInput: "",
+    errorString: false,
   },
   methods: {
     removeTodo(index) {
@@ -37,11 +38,15 @@ const app = new Vue({
     },
     addTodo() {
       let stringClean = this.valueInput.trim();
-      if (stringClean) {
+      let checkDuplicated = this.todos.find((value, index) => value.action === stringClean);
+
+      if (stringClean && !checkDuplicated) {
+        this.errorString = false;
         this.todos.push(new Todo(stringClean));
         this.valueInput = "";
       } else {
-        console.error("PASSAGGIO STRINGA VUOTA");
+        this.errorString = true;
+        console.error("PASSAGGIO STRINGA VUOTA O DUPLICATO");
       }
     },
 
@@ -52,9 +57,8 @@ const app = new Vue({
         this.todos.splice(index, 1);
         this.todos.splice(index - 1, 0, tempTodoElement);
       }
-
-      console.log(tempTodoElement, this.todos);
     },
+
     goDownTodo(index) {
       let tempTodoElement = this.todos[index];
 
@@ -62,7 +66,6 @@ const app = new Vue({
         this.todos.splice(index, 1);
         this.todos.splice(index + 1, 0, tempTodoElement);
       }
-      console.log(tempTodoElement, this.todos);
     },
   },
 });

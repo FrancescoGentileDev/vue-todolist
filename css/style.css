@@ -5,6 +5,12 @@ ul {
     padding: 0
 }
 
+
+.string-error {
+    background-color: rgba(255, 0, 0, 0.582);
+    border-radius: 30px;
+    color: white;
+}
 li {
     padding: 30px;
     border-top: 1px solid black;
