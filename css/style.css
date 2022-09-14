@@ -41,3 +41,20 @@ li > label {
 li input[type="checkbox"]:checked + label {
     text-decoration: line-through;
 }
+
+
+.li-todo .number-action {
+    --size: 1.5rem;
+    margin-right: 2rem;
+    background-color: crimson;
+    display: inline-block;
+    text-align: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    color: white
+}
+
+
+li button {
+    border: none;}
